@@ -1116,7 +1116,7 @@ sys|schema||mysql.sys|localhost|TRIGGER|G</Grants>
     </schema>
     <schema id="306" parent="1" name="resource_usage_track">
       <Current>1</Current>
-      <LastIntrospectionLocalTimestamp>2025-06-12.21:39:08</LastIntrospectionLocalTimestamp>
+      <LastIntrospectionLocalTimestamp>2025-06-12.22:20:38</LastIntrospectionLocalTimestamp>
       <CollationName>utf8mb4_0900_ai_ci</CollationName>
     </schema>
     <schema id="307" parent="1" name="resource_usage_tracker">
@@ -1381,6 +1381,8 @@ sys|schema||mysql.sys|localhost|TRIGGER|G</Grants>
     </column>
     <column id="365" parent="320" name="isBundle">
       <DasType>tinyint(1)|0s</DasType>
+      <DefaultExpression>0</DefaultExpression>
+      <NotNull>1</NotNull>
       <Position>6</Position>
     </column>
     <column id="366" parent="320" name="usageSpecificationId">
@@ -1473,6 +1475,8 @@ sys|schema||mysql.sys|localhost|TRIGGER|G</Grants>
     </column>
     <column id="385" parent="321" name="isBundle">
       <DasType>tinyint(1)|0s</DasType>
+      <DefaultExpression>0</DefaultExpression>
+      <NotNull>1</NotNull>
       <Position>5</Position>
     </column>
     <column id="386" parent="321" name="lifecycleStatus">

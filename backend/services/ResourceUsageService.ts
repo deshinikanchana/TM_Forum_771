@@ -3,37 +3,39 @@ import { ResourceUsageInput } from '../types/ResourceUsageTracker';
 
 export const createResourceUsage = async (data: ResourceUsageInput) => {
     try {
-    return await prisma.resourceUsage.create({
-        data: {
-            id: data.id || crypto.randomUUID(),
-            href: data.href || "",
-            usageDate: data.usageDate && !isNaN(Date.parse(data.usageDate)) ? new Date(data.usageDate) : new Date(),
-            usageType: data.usageType,
-            description: data.description,
-            isBundle: data.isBundle,
-            resourceId: data.resourceId,
-            resourceName: data.resourceName,
-            baseType: data.baseType,
-            type: data.type,
-            schemaLocation: data.schemaLocation,
+        const generatedId = data.id || crypto.randomUUID();
+        const generatedHref = data.href || `http://localhost:3000/tmf-api/resourceUsageManagement/v5/resourceUsage/${generatedId}`;
 
-            usageSpecification: data.usageSpecification?.id
-                ? { connect: { id: data.usageSpecification.id } }
-                : undefined,
+        return await prisma.resourceUsage.upsert({
+            where: {id: generatedId},
+            update: {},
+            create: {
+                id: generatedId,
+                href: generatedHref,
+                usageDate: data.usageDate && !isNaN(Date.parse(data.usageDate)) ? new Date(data.usageDate) : new Date(),
+                usageType: data.usageType,
+                description: data.description,
+                isBundle: Boolean(data.isBundle),
+                resourceId: data.resourceId,
+                resourceName: data.resourceName,
+                baseType: data.baseType,
+                type: data.type,
+                schemaLocation: data.schemaLocation,
+                usageSpecification: data.usageSpecification?.id
+                    ? {connect: {id: data.usageSpecification.id}}
+                    : undefined,
+                usageCharacteristics: {
+                    create: data.usageCharacteristic || []
+                },
+                relatedParties: {
+                    create: data.relatedParty || []
+                },
+                externalIdentifiers: {
+                    create: data.externalIdentifier || []
+                }
+            }
+        });
 
-            usageCharacteristics: {
-                create: data.usageCharacteristic?.map(({ ...rest }) => rest) || [],
-            },
-
-            relatedParties: {
-                create: data.relatedParty?.map(({ ...rest }) => rest) || [],
-            },
-
-            externalIdentifiers: {
-                create: data.externalIdentifier?.map(({ ...rest }) => rest) || [],
-            },
-        },
-    });
     } catch (error) {
         console.error("ResourceUsage Create Error:", error);
         throw error;

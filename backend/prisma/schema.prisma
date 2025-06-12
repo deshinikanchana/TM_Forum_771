@@ -17,7 +17,7 @@ model ResourceUsageSpecification {
   name            String?
   description     String?
   version         String?
-  isBundle        Boolean?
+  isBundle        Boolean   @default(false)
   lifecycleStatus String?
   lastUpdate      DateTime?
   validForStart   DateTime?
@@ -50,7 +50,7 @@ model ResourceUsage {
   usageDate              DateTime
   usageType              String?
   description            String?
-  isBundle               Boolean?
+  isBundle               Boolean                     @default(false)
   usageSpecificationId   String?
   usageSpecification     ResourceUsageSpecification? @relation(fields: [usageSpecificationId], references: [id], onDelete: SetNull, onUpdate: Cascade)
   resourceId             String?
