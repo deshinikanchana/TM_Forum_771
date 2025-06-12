@@ -6,6 +6,7 @@ export const create = async (req: Request, res: Response) => {
     const data = req.body;
     try {
         const result = await service.createResourceUsage(data);
+        console.log("📦 Incoming CTK Payload:", JSON.stringify(req.body, null, 2));
         await notifyListeners('ResourceUsageCreateEvent', { usage: result });
         res.status(201).json(result);
     } catch (e) {

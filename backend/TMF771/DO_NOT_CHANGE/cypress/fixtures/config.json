@@ -1,0 +1,54 @@
+{
+    "url": "http://localhost:3000/tmf-api/resourceUsageManagement/v5",
+    "headers": {
+        "Content-Type": "application/json",
+        "Accept": "application/json"
+    },
+    "payloads": {
+        "ResourceUsage": {
+            "POST": {
+                "payload": {
+                    "id": "ru-001",
+                    "usageDate": "2025-06-12T12:00:00Z",
+                    "usageType": "VOICE",
+                    "description": "Call from A to B",
+                    "usageSpecification": {
+                        "id": "af59-b504c742900e"
+                    },
+                    "usageCharacteristic": [
+                        {
+                            "name": "duration",
+                            "valueType": "string",
+                            "value": "120"
+                        }
+                    ],
+                    "relatedParty": [
+                        {
+                            "role": "Customer",
+                            "partyId": "user-123"
+                        }
+                    ],
+                    "externalIdentifier": [
+                        {
+                            "owner": "ExternalSystem",
+                            "externalIdentifierType": "EXT-ID"
+                        }
+                    ]
+                }
+            }
+        },
+        "ResourceUsageSpecification": {
+            "POST": {
+                "payload": {
+                    "id": "af59-b504c742900e",
+                    "name": "VoiceCall",
+                    "version": "1.0",
+                    "lifecycleStatus": "active",
+                    "isBundle": false,
+                    "validForStart": "2024-01-01T00:00:00Z",
+                    "validForEnd": "2030-12-31T23:59:59Z"
+                }
+            }
+        }
+    }
+}

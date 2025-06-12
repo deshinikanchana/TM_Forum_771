@@ -1,0 +1,446 @@
+{
+    "generated": "2024-09-24T12:54:24",
+    "api": "TMF771",
+    "apiVersion": "5.0.0",
+    "tests": {
+        "1": {
+            "type": "auto",
+            "method": "POST",
+            "collection": false,
+            "schemaRef": "#/components/schemas/ResourceUsage",
+            "statusCodes": [
+                201
+            ],
+            "basePath": "config.json#/url",
+            "path": "/resourceUsage",
+            "body": "config.json#/payloads/ResourceUsage/POST/payload",
+            "headers": "config.json#/headers",
+            "query": "",
+            "testContext": "TMF771 Conformance Profile v5.0.0 - API POST Operation Conformance - For ResourceUsage Resource",
+            "mandatoryKeys": [
+                "@type",
+                "bundledResourceUsage.@type",
+                "externalIdentifier.@type",
+                "externalIdentifier.id",
+                "relatedParty.@type",
+                "relatedParty.partyOrPartyRole.@type",
+                "relatedParty.role",
+                "resource",
+                "resource.@type",
+                "usageCharacteristic",
+                "usageCharacteristic.@type",
+                "usageCharacteristic.characteristicRelationship.@type",
+                "usageCharacteristic.characteristicRelationship.id",
+                "usageCharacteristic.characteristicRelationship.relationshipType",
+                "usageCharacteristic.name",
+                "usageCharacteristic.value",
+                "usageDate",
+                "usageSpecification.@type"
+            ]
+        },
+        "2": {
+            "type": "auto",
+            "method": "GET",
+            "collection": true,
+            "schemaRef": "#/components/schemas/ResourceUsage",
+            "statusCodes": [
+                200,
+                206
+            ],
+            "basePath": "config.json#/url",
+            "path": "/resourceUsage",
+            "body": "",
+            "testContext": "TMF771 Conformance Profile v5.0.0 - API GET Operation Conformance - For ResourceUsage Resource",
+            "headers": "config.json#/headers",
+            "query": "",
+            "mandatoryKeys": [
+                "@type",
+                "bundledResourceUsage.@type",
+                "externalIdentifier.@type",
+                "externalIdentifier.id",
+                "href",
+                "id",
+                "relatedParty.@type",
+                "relatedParty.partyOrPartyRole.@type",
+                "relatedParty.role",
+                "resource",
+                "resource.@type",
+                "usageCharacteristic",
+                "usageCharacteristic.@type",
+                "usageCharacteristic.characteristicRelationship.@type",
+                "usageCharacteristic.characteristicRelationship.id",
+                "usageCharacteristic.characteristicRelationship.relationshipType",
+                "usageCharacteristic.name",
+                "usageCharacteristic.value",
+                "usageDate",
+                "usageSpecification.@type"
+            ]
+        },
+        "3": {
+            "type": "auto",
+            "method": "GET",
+            "collection": false,
+            "schemaRef": "#/components/schemas/ResourceUsage",
+            "statusCodes": [
+                200
+            ],
+            "basePath": "config.json#/url",
+            "path": "/resourceUsage/{id}",
+            "body": "",
+            "headers": "config.json#/headers",
+            "testContext": "TMF771 Conformance Profile v5.0.0 - API GET Operation Conformance - For ResourceUsage Resource",
+            "query": "",
+            "mandatoryKeys": [
+                "@type",
+                "bundledResourceUsage.@type",
+                "externalIdentifier.@type",
+                "externalIdentifier.id",
+                "href",
+                "id",
+                "relatedParty.@type",
+                "relatedParty.partyOrPartyRole.@type",
+                "relatedParty.role",
+                "resource",
+                "resource.@type",
+                "usageCharacteristic",
+                "usageCharacteristic.@type",
+                "usageCharacteristic.characteristicRelationship.@type",
+                "usageCharacteristic.characteristicRelationship.id",
+                "usageCharacteristic.characteristicRelationship.relationshipType",
+                "usageCharacteristic.name",
+                "usageCharacteristic.value",
+                "usageDate",
+                "usageSpecification.@type"
+            ]
+        },
+        "4": {
+            "type": "auto",
+            "method": "GET",
+            "collection": false,
+            "schemaRef": "#/components/schemas/ResourceUsage",
+            "statusCodes": [
+                200
+            ],
+            "basePath": "config.json#/url",
+            "path": "/resourceUsage/{id}",
+            "body": "",
+            "headers": "config.json#/headers",
+            "query": "?fields=resource",
+            "testContext": "TMF771 Conformance Profile v5.0.0 - API GET Operation Conformance - For ResourceUsage Resource - /{id}?fields=...&{filtering}",
+            "mandatoryKeys": [
+                "resource",
+                "@type",
+                "id",
+                "href"
+            ]
+        },
+        "5": {
+            "type": "auto",
+            "method": "GET",
+            "collection": true,
+            "schemaRef": "#/components/schemas/ResourceUsage",
+            "statusCodes": [
+                200,
+                206
+            ],
+            "basePath": "config.json#/url",
+            "path": "/resourceUsage",
+            "body": "",
+            "headers": "config.json#/headers",
+            "query": "?fields=resource",
+            "testContext": "TMF771 Conformance Profile v5.0.0 - API GET Operation Conformance - For ResourceUsage Resource - ?fields=...&{filtering}",
+            "mandatoryKeys": [
+                "resource",
+                "@type",
+                "id",
+                "href"
+            ]
+        },
+        "6": {
+            "type": "auto",
+            "method": "GET",
+            "collection": false,
+            "schemaRef": "#/components/schemas/ResourceUsage",
+            "statusCodes": [
+                200
+            ],
+            "basePath": "config.json#/url",
+            "path": "/resourceUsage/{id}",
+            "body": "",
+            "headers": "config.json#/headers",
+            "query": "?fields=usageCharacteristic",
+            "testContext": "TMF771 Conformance Profile v5.0.0 - API GET Operation Conformance - For ResourceUsage Resource - /{id}?fields=...&{filtering}",
+            "mandatoryKeys": [
+                "usageCharacteristic",
+                "@type",
+                "id",
+                "href"
+            ]
+        },
+        "7": {
+            "type": "auto",
+            "method": "GET",
+            "collection": true,
+            "schemaRef": "#/components/schemas/ResourceUsage",
+            "statusCodes": [
+                200,
+                206
+            ],
+            "basePath": "config.json#/url",
+            "path": "/resourceUsage",
+            "body": "",
+            "headers": "config.json#/headers",
+            "query": "?fields=usageCharacteristic",
+            "testContext": "TMF771 Conformance Profile v5.0.0 - API GET Operation Conformance - For ResourceUsage Resource - ?fields=...&{filtering}",
+            "mandatoryKeys": [
+                "usageCharacteristic",
+                "@type",
+                "id",
+                "href"
+            ]
+        },
+        "8": {
+            "type": "auto",
+            "method": "GET",
+            "collection": false,
+            "schemaRef": "#/components/schemas/ResourceUsage",
+            "statusCodes": [
+                200
+            ],
+            "basePath": "config.json#/url",
+            "path": "/resourceUsage/{id}",
+            "body": "",
+            "headers": "config.json#/headers",
+            "query": "?fields=usageDate",
+            "testContext": "TMF771 Conformance Profile v5.0.0 - API GET Operation Conformance - For ResourceUsage Resource - /{id}?fields=...&{filtering}",
+            "mandatoryKeys": [
+                "usageDate",
+                "@type",
+                "id",
+                "href"
+            ]
+        },
+        "9": {
+            "type": "auto",
+            "method": "GET",
+            "collection": true,
+            "schemaRef": "#/components/schemas/ResourceUsage",
+            "statusCodes": [
+                200,
+                206
+            ],
+            "basePath": "config.json#/url",
+            "path": "/resourceUsage",
+            "body": "",
+            "headers": "config.json#/headers",
+            "query": "?fields=usageDate",
+            "testContext": "TMF771 Conformance Profile v5.0.0 - API GET Operation Conformance - For ResourceUsage Resource - ?fields=...&{filtering}",
+            "mandatoryKeys": [
+                "usageDate",
+                "@type",
+                "id",
+                "href"
+            ]
+        },
+        "10": {
+            "type": "auto",
+            "method": "GET",
+            "collection": true,
+            "schemaRef": "#/components/schemas/ResourceUsage",
+            "statusCodes": [
+                200,
+                206
+            ],
+            "basePath": "config.json#/url",
+            "path": "/resourceUsage",
+            "body": "",
+            "headers": "config.json#/headers",
+            "query": "?usageDate={usageDate}",
+            "testContext": "TMF771 Conformance Profile v5.0.0 - API GET Operation Conformance - For ResourceUsage Resource - and Filtering usageDate=",
+            "mandatoryKeys": [
+                "usageDate",
+                "@type",
+                "id",
+                "href"
+            ]
+        },
+        "11": {
+            "type": "auto",
+            "method": "POST",
+            "collection": false,
+            "schemaRef": "#/components/schemas/ResourceUsageSpecification",
+            "statusCodes": [
+                201
+            ],
+            "basePath": "config.json#/url",
+            "path": "/resourceUsageSpecification",
+            "body": "config.json#/payloads/ResourceUsageSpecification/POST/payload",
+            "headers": "config.json#/headers",
+            "query": "",
+            "testContext": "TMF771 Conformance Profile v5.0.0 - API POST Operation Conformance - For ResourceUsageSpecification Resource",
+            "mandatoryKeys": [
+                "@type",
+                "attachment.@type",
+                "attachment.attachmentType",
+                "attachment.id",
+                "attachment.mimeType",
+                "bundledResourceUsageSpecification.@type",
+                "name",
+                "resourceSpecification.@type",
+                "resourceUsageSpecRelationship.@type",
+                "resourceUsageSpecRelationship.id",
+                "resourceUsageSpecRelationship.relationshipType",
+                "specCharacteristic.@type",
+                "specCharacteristic.charSpecRelationship.@type",
+                "specCharacteristic.charSpecRelationship.name",
+                "specCharacteristic.charSpecRelationship.parentSpecificationId",
+                "specCharacteristic.charSpecRelationship.relationshipType",
+                "specCharacteristic.characteristicValueSpecification.@type",
+                "specCharacteristic.name",
+                "specCharacteristic.valueType"
+            ]
+        },
+        "12": {
+            "type": "auto",
+            "method": "GET",
+            "collection": true,
+            "schemaRef": "#/components/schemas/ResourceUsageSpecification",
+            "statusCodes": [
+                200,
+                206
+            ],
+            "basePath": "config.json#/url",
+            "path": "/resourceUsageSpecification",
+            "body": "",
+            "testContext": "TMF771 Conformance Profile v5.0.0 - API GET Operation Conformance - For ResourceUsageSpecification Resource",
+            "headers": "config.json#/headers",
+            "query": "",
+            "mandatoryKeys": [
+                "@type",
+                "attachment.@type",
+                "attachment.attachmentType",
+                "attachment.id",
+                "attachment.mimeType",
+                "bundledResourceUsageSpecification.@type",
+                "href",
+                "id",
+                "name",
+                "resourceSpecification.@type",
+                "resourceUsageSpecRelationship.@type",
+                "resourceUsageSpecRelationship.id",
+                "resourceUsageSpecRelationship.relationshipType",
+                "specCharacteristic.@type",
+                "specCharacteristic.charSpecRelationship.@type",
+                "specCharacteristic.charSpecRelationship.name",
+                "specCharacteristic.charSpecRelationship.parentSpecificationId",
+                "specCharacteristic.charSpecRelationship.relationshipType",
+                "specCharacteristic.characteristicValueSpecification.@type",
+                "specCharacteristic.name",
+                "specCharacteristic.valueType"
+            ]
+        },
+        "13": {
+            "type": "auto",
+            "method": "GET",
+            "collection": false,
+            "schemaRef": "#/components/schemas/ResourceUsageSpecification",
+            "statusCodes": [
+                200
+            ],
+            "basePath": "config.json#/url",
+            "path": "/resourceUsageSpecification/{id}",
+            "body": "",
+            "headers": "config.json#/headers",
+            "testContext": "TMF771 Conformance Profile v5.0.0 - API GET Operation Conformance - For ResourceUsageSpecification Resource",
+            "query": "",
+            "mandatoryKeys": [
+                "@type",
+                "attachment.@type",
+                "attachment.attachmentType",
+                "attachment.id",
+                "attachment.mimeType",
+                "bundledResourceUsageSpecification.@type",
+                "href",
+                "id",
+                "name",
+                "resourceSpecification.@type",
+                "resourceUsageSpecRelationship.@type",
+                "resourceUsageSpecRelationship.id",
+                "resourceUsageSpecRelationship.relationshipType",
+                "specCharacteristic.@type",
+                "specCharacteristic.charSpecRelationship.@type",
+                "specCharacteristic.charSpecRelationship.name",
+                "specCharacteristic.charSpecRelationship.parentSpecificationId",
+                "specCharacteristic.charSpecRelationship.relationshipType",
+                "specCharacteristic.characteristicValueSpecification.@type",
+                "specCharacteristic.name",
+                "specCharacteristic.valueType"
+            ]
+        },
+        "14": {
+            "type": "auto",
+            "method": "GET",
+            "collection": false,
+            "schemaRef": "#/components/schemas/ResourceUsageSpecification",
+            "statusCodes": [
+                200
+            ],
+            "basePath": "config.json#/url",
+            "path": "/resourceUsageSpecification/{id}",
+            "body": "",
+            "headers": "config.json#/headers",
+            "query": "?fields=name",
+            "testContext": "TMF771 Conformance Profile v5.0.0 - API GET Operation Conformance - For ResourceUsageSpecification Resource - /{id}?fields=...&{filtering}",
+            "mandatoryKeys": [
+                "name",
+                "@type",
+                "id",
+                "href"
+            ]
+        },
+        "15": {
+            "type": "auto",
+            "method": "GET",
+            "collection": true,
+            "schemaRef": "#/components/schemas/ResourceUsageSpecification",
+            "statusCodes": [
+                200,
+                206
+            ],
+            "basePath": "config.json#/url",
+            "path": "/resourceUsageSpecification",
+            "body": "",
+            "headers": "config.json#/headers",
+            "query": "?fields=name",
+            "testContext": "TMF771 Conformance Profile v5.0.0 - API GET Operation Conformance - For ResourceUsageSpecification Resource - ?fields=...&{filtering}",
+            "mandatoryKeys": [
+                "name",
+                "@type",
+                "id",
+                "href"
+            ]
+        },
+        "16": {
+            "type": "auto",
+            "method": "GET",
+            "collection": true,
+            "schemaRef": "#/components/schemas/ResourceUsageSpecification",
+            "statusCodes": [
+                200,
+                206
+            ],
+            "basePath": "config.json#/url",
+            "path": "/resourceUsageSpecification",
+            "body": "",
+            "headers": "config.json#/headers",
+            "query": "?name={name}",
+            "testContext": "TMF771 Conformance Profile v5.0.0 - API GET Operation Conformance - For ResourceUsageSpecification Resource - and Filtering name=",
+            "mandatoryKeys": [
+                "name",
+                "@type",
+                "id",
+                "href"
+            ]
+        }
+    }
+}

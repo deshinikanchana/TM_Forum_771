@@ -1,0 +1,168 @@
+openapi: 3.0.3
+info:
+  title: TMF771 Resource Usage Management API
+  version: 5.0.0
+  description: TMF771 compliant API for managing ResourceUsage and ResourceUsageSpecification.
+servers:
+  - url: http://localhost:3000/tmf-api/resourceUsageManagement/v5
+paths:
+  /resourceUsage:
+    post:
+      summary: Create a ResourceUsage
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ResourceUsage'
+      responses:
+        '201':
+          description: ResourceUsage created
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResourceUsage'
+    get:
+      summary: List all ResourceUsages
+      responses:
+        '200':
+          description: List of ResourceUsages
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/ResourceUsage'
+  /resourceUsageSpecification:
+    post:
+      summary: Create a ResourceUsageSpecification
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ResourceUsageSpecification'
+      responses:
+        '201':
+          description: ResourceUsageSpecification created
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResourceUsageSpecification'
+    get:
+      summary: List all ResourceUsageSpecifications
+      responses:
+        '200':
+          description: List of ResourceUsageSpecifications
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/ResourceUsageSpecification'
+components:
+  schemas:
+    ResourceUsage:
+      type: object
+      required:
+        - id
+        - usageDate
+      properties:
+        id:
+          type: string
+        href:
+          type: string
+        usageDate:
+          type: string
+          format: date-time
+        usageType:
+          type: string
+        description:
+          type: string
+        isBundle:
+          type: boolean
+        resourceId:
+          type: string
+        resourceName:
+          type: string
+        baseType:
+          type: string
+        type:
+          type: string
+        schemaLocation:
+          type: string
+        usageSpecification:
+          $ref: '#/components/schemas/ResourceUsageSpecificationRef'
+        usageCharacteristic:
+          type: array
+          items:
+            $ref: '#/components/schemas/UsageCharacteristic'
+        relatedParty:
+          type: array
+          items:
+            $ref: '#/components/schemas/RelatedParty'
+        externalIdentifier:
+          type: array
+          items:
+            $ref: '#/components/schemas/ExternalIdentifier'
+    ResourceUsageSpecification:
+      type: object
+      required:
+        - id
+        - validForStart
+        - validForEnd
+      properties:
+        id:
+          type: string
+        name:
+          type: string
+        description:
+          type: string
+        version:
+          type: string
+        lifecycleStatus:
+          type: string
+        isBundle:
+          type: boolean
+        validForStart:
+          type: string
+          format: date-time
+        validForEnd:
+          type: string
+          format: date-time
+        baseType:
+          type: string
+        type:
+          type: string
+        schemaLocation:
+          type: string
+    ResourceUsageSpecificationRef:
+      type: object
+      properties:
+        id:
+          type: string
+    UsageCharacteristic:
+      type: object
+      properties:
+        name:
+          type: string
+        valueType:
+          type: string
+        value:
+          type: string
+    RelatedParty:
+      type: object
+      properties:
+        role:
+          type: string
+        partyId:
+          type: string
+        partyName:
+          type: string
+    ExternalIdentifier:
+      type: object
+      properties:
+        owner:
+          type: string
+        externalIdentifierType:
+          type: string

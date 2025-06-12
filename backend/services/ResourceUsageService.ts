@@ -2,11 +2,12 @@ import { prisma } from '../prisma/Client';
 import { ResourceUsageInput } from '../types/ResourceUsageTracker';
 
 export const createResourceUsage = async (data: ResourceUsageInput) => {
-    return prisma.resourceUsage.create({
+    try {
+    return await prisma.resourceUsage.create({
         data: {
-            id: data.id,
-            href: data.href,
-            usageDate: new Date(data.usageDate),
+            id: data.id || crypto.randomUUID(),
+            href: data.href || "",
+            usageDate: data.usageDate && !isNaN(Date.parse(data.usageDate)) ? new Date(data.usageDate) : new Date(),
             usageType: data.usageType,
             description: data.description,
             isBundle: data.isBundle,
@@ -16,7 +17,7 @@ export const createResourceUsage = async (data: ResourceUsageInput) => {
             type: data.type,
             schemaLocation: data.schemaLocation,
 
-            usageSpecification: data.usageSpecification
+            usageSpecification: data.usageSpecification?.id
                 ? { connect: { id: data.usageSpecification.id } }
                 : undefined,
 
@@ -33,6 +34,10 @@ export const createResourceUsage = async (data: ResourceUsageInput) => {
             },
         },
     });
+    } catch (error) {
+        console.error("ResourceUsage Create Error:", error);
+        throw error;
+    }
 };
 
 export const getAllResourceUsages = async () => {
