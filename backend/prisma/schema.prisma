@@ -1,0 +1,105 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
+// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+model ResourceUsageSpecification {
+  id              String    @id
+  name            String?
+  description     String?
+  version         String?
+  isBundle        Boolean?
+  lifecycleStatus String?
+  lastUpdate      DateTime?
+  validForStart   DateTime?
+  validForEnd     DateTime?
+  baseType        String?
+  type            String?
+  schemaLocation  String?
+
+  characteristics CharacteristicSpecification[]
+  resourceUsages  ResourceUsage[]
+}
+
+model CharacteristicSpecification {
+  id                  String                     @id
+  name                String
+  valueType           String
+  description         String?
+  configurable        Boolean
+  extensible          Boolean?
+  isUnique            Boolean?
+  minCardinality      Int
+  maxCardinality      Int
+  resourceUsageSpecId String
+  resourceUsageSpec   ResourceUsageSpecification @relation(fields: [resourceUsageSpecId], references: [id], onDelete: Cascade, onUpdate: Cascade)
+}
+
+model ResourceUsage {
+  id                     String                      @id
+  href                   String?
+  usageDate              DateTime
+  usageType              String?
+  description            String?
+  isBundle               Boolean?
+  usageSpecificationId   String?
+  usageSpecification     ResourceUsageSpecification? @relation(fields: [usageSpecificationId], references: [id], onDelete: SetNull, onUpdate: Cascade)
+  resourceId             String?
+  resourceName           String?
+  bundledResourceUsageId String?
+  bundledFromUsages      ResourceUsage[]             @relation("Bundle")
+  bundledToUsage         ResourceUsage?              @relation("Bundle", fields: [bundledResourceUsageId], references: [id], onDelete: SetNull, onUpdate: Cascade)
+  baseType               String?
+  type                   String?
+  schemaLocation         String?
+  createdAt              DateTime                    @default(now())
+  updatedAt              DateTime                    @updatedAt
+
+  usageCharacteristics UsageCharacteristic[]
+  relatedParties       RelatedParty[]
+  externalIdentifiers  ExternalIdentifier[]
+}
+
+model UsageCharacteristic {
+  id              String        @id @default(uuid())
+  name            String
+  value           String
+  valueType       String
+  type            String?
+  baseType        String?
+  schemaLocation  String?
+  resourceUsageId String
+  resourceUsage   ResourceUsage @relation(fields: [resourceUsageId], references: [id], onDelete: Cascade, onUpdate: Cascade)
+}
+
+model RelatedParty {
+  id              String        @id @default(uuid())
+  role            String
+  partyId         String?
+  partyName       String?
+  type            String?
+  baseType        String?
+  schemaLocation  String?
+  resourceUsageId String
+  resourceUsage   ResourceUsage @relation(fields: [resourceUsageId], references: [id], onDelete: Cascade, onUpdate: Cascade)
+}
+
+model ExternalIdentifier {
+  id                     String        @id @default(uuid())
+  owner                  String
+  externalIdentifierType String
+  type                   String?
+  baseType               String?
+  schemaLocation         String?
+  resourceUsageId        String
+  resourceUsage          ResourceUsage @relation(fields: [resourceUsageId], references: [id], onDelete: Cascade, onUpdate: Cascade)
+}
