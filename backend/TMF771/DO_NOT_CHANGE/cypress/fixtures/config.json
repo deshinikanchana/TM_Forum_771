@@ -9,9 +9,16 @@
             "POST": {
                 "payload": {
                     "id": "ru-001",
+                    "href": "http://localhost:3000/tmf-api/resourceUsageManagement/v5/resourceUsage/ru-001",
                     "usageDate": "2025-06-12T12:00:00Z",
                     "usageType": "VOICE",
                     "description": "Call from A to B",
+                    "isBundle": false,
+                    "resourceId": "res-001",
+                    "resourceName": "Phone Line",
+                    "type": "ResourceUsage",
+                    "baseType": "BaseEntity",
+                    "schemaLocation": "http://mydomain.org/tmf/resourceUsage.schema.json",
                     "usageSpecification": {
                         "id": "af59-b504c742900e"
                     },
@@ -44,9 +51,13 @@
                     "name": "VoiceCall",
                     "version": "1.0",
                     "lifecycleStatus": "active",
+                    "description": "Voice call usage specification",
                     "isBundle": false,
                     "validForStart": "2024-01-01T00:00:00Z",
-                    "validForEnd": "2030-12-31T23:59:59Z"
+                    "validForEnd": "2030-12-31T23:59:59Z",
+                    "type": "ResourceUsageSpecification",
+                    "baseType": "BaseSpecification",
+                    "schemaLocation": "http://mydomain.org/tmf/resourceUsageSpecification.schema.json"
                 }
             }
         }

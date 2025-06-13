@@ -14,11 +14,11 @@ datasource db {
 
 model ResourceUsageSpecification {
   id              String    @id
-  name            String?
-  description     String?
-  version         String?
+  name            String
+  description     String
+  version         String
   isBundle        Boolean   @default(false)
-  lifecycleStatus String?
+  lifecycleStatus String
   lastUpdate      DateTime?
   validForStart   DateTime?
   validForEnd     DateTime?
@@ -34,7 +34,7 @@ model CharacteristicSpecification {
   id                  String                     @id
   name                String
   valueType           String
-  description         String?
+  description         String
   configurable        Boolean
   extensible          Boolean?
   isUnique            Boolean?
@@ -48,13 +48,13 @@ model ResourceUsage {
   id                     String                      @id
   href                   String?
   usageDate              DateTime
-  usageType              String?
-  description            String?
+  usageType              String
+  description            String
   isBundle               Boolean                     @default(false)
   usageSpecificationId   String?
   usageSpecification     ResourceUsageSpecification? @relation(fields: [usageSpecificationId], references: [id], onDelete: SetNull, onUpdate: Cascade)
-  resourceId             String?
-  resourceName           String?
+  resourceId             String
+  resourceName           String
   bundledResourceUsageId String?
   bundledFromUsages      ResourceUsage[]             @relation("Bundle")
   bundledToUsage         ResourceUsage?              @relation("Bundle", fields: [bundledResourceUsageId], references: [id], onDelete: SetNull, onUpdate: Cascade)
