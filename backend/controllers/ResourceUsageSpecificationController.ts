@@ -5,7 +5,11 @@ import { notifyListeners } from '../webhooks/WebHookPublisher';
 export const list = async (req: Request, res: Response): Promise<void> => {
     try {
         const specs = await service.getAllSpecifications();
-        res.json(specs);
+        const enhanced = specs.map(spec => ({
+            ...spec,
+            href: `http://localhost:3000/tmf-api/resourceUsageManagement/v5/resourceUsageSpecification/${spec.id}`,
+        }));
+        res.json(enhanced);
     } catch (error: any) {
         res.status(500).json({ error: error.message });
     }
@@ -41,7 +45,6 @@ export const get = async (req: Request, res: Response): Promise<void> => {
         }
         res.json({
             ...spec,
-            id: req.params.id,
             href: `http://localhost:3000/tmf-api/resourceUsageManagement/v5/resourceUsageSpecification/${req.params.id}`,
         });
     } catch (error: any) {

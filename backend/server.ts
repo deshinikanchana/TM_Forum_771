@@ -21,7 +21,6 @@ app.use(`${TMF_BASE}/resourceUsage`, resourceUsageRoutes);
 app.use(`${TMF_BASE}/resourceUsageSpecification`, specRoutes);
 app.use('/webhooks', webhookRoutes);
 
-// Optional: direct test listener for webhook
 app.post('/notifications', (req, res) => {
     console.log('📩 Received Webhook Event:', JSON.stringify(req.body, null, 2));
     res.sendStatus(200);
