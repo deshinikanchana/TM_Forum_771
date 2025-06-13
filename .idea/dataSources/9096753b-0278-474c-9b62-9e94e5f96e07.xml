@@ -1116,7 +1116,7 @@ sys|schema||mysql.sys|localhost|TRIGGER|G</Grants>
     </schema>
     <schema id="306" parent="1" name="resource_usage_track">
       <Current>1</Current>
-      <LastIntrospectionLocalTimestamp>2025-06-12.22:20:38</LastIntrospectionLocalTimestamp>
+      <LastIntrospectionLocalTimestamp>2025-06-13.00:16:11</LastIntrospectionLocalTimestamp>
       <CollationName>utf8mb4_0900_ai_ci</CollationName>
     </schema>
     <schema id="307" parent="1" name="resource_usage_tracker">

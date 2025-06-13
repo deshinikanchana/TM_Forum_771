@@ -6,35 +6,46 @@ export const createResourceUsage = async (data: ResourceUsageInput) => {
         const generatedId = data.id || crypto.randomUUID();
         const generatedHref = data.href || `http://localhost:3000/tmf-api/resourceUsageManagement/v5/resourceUsage/${generatedId}`;
 
-        return await prisma.resourceUsage.upsert({
-            where: {id: generatedId},
-            update: {},
-            create: {
-                id: generatedId,
-                href: generatedHref,
-                usageDate: data.usageDate && !isNaN(Date.parse(data.usageDate)) ? new Date(data.usageDate) : new Date(),
-                usageType: data.usageType,
-                description: data.description,
-                isBundle: Boolean(data.isBundle),
-                resourceId: data.resourceId,
-                resourceName: data.resourceName,
-                baseType: data.baseType,
-                type: data.type,
-                schemaLocation: data.schemaLocation,
-                usageSpecification: data.usageSpecification?.id
-                    ? {connect: {id: data.usageSpecification.id}}
-                    : undefined,
-                usageCharacteristics: {
-                    create: data.usageCharacteristic || []
-                },
-                relatedParties: {
-                    create: data.relatedParty || []
-                },
-                externalIdentifiers: {
-                    create: data.externalIdentifier || []
-                }
+        if (data.usageSpecification?.id) {
+            const specExists = await prisma.resourceUsageSpecification.findUnique({
+                where: {id: data.usageSpecification.id}
+            });
+
+            if (!specExists) {
+                throw new Error(`Referenced usageSpecification ID '${data.usageSpecification.id}' does not exist.`);
+            } else {
+
+                return await prisma.resourceUsage.upsert({
+                    where: {id: generatedId},
+                    update: {},
+                    create: {
+                        id: generatedId,
+                        href: generatedHref,
+                        usageDate: data.usageDate && !isNaN(Date.parse(data.usageDate)) ? new Date(data.usageDate) : new Date(),
+                        usageType: data.usageType || '',
+                        description:data.description || '',
+                        isBundle: data.isBundle === undefined ? false : Boolean(data.isBundle),
+                        resourceId: data.resourceId || '',
+                        resourceName: data.resourceName || '',
+                        baseType: data.baseType || '',
+                        type: data.type || '',
+                        schemaLocation: data.schemaLocation || '',
+                        usageSpecification: data.usageSpecification?.id
+                            ? {connect: {id: data.usageSpecification.id}}
+                            : undefined,
+                        usageCharacteristics: {
+                            create: data.usageCharacteristic || []
+                        },
+                        relatedParties: {
+                            create: data.relatedParty || []
+                        },
+                        externalIdentifiers: {
+                            create: data.externalIdentifier || []
+                        }
+                    }
+                });
             }
-        });
+        }
 
     } catch (error) {
         console.error("ResourceUsage Create Error:", error);
