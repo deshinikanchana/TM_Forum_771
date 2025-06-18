@@ -14,6 +14,7 @@ datasource db {
 
 model ResourceUsageSpecification {
   id              String    @id
+  href            String?
   name            String
   description     String
   version         String
@@ -22,8 +23,8 @@ model ResourceUsageSpecification {
   lastUpdate      DateTime?
   validForStart   DateTime?
   validForEnd     DateTime?
-  baseType        String?
-  type            String?
+  baseType        String?   @map("@baseType")
+  type            String?   @map("@type")
   schemaLocation  String?
 
   characteristics CharacteristicSpecification[]
@@ -58,8 +59,8 @@ model ResourceUsage {
   bundledResourceUsageId String?
   bundledFromUsages      ResourceUsage[]             @relation("Bundle")
   bundledToUsage         ResourceUsage?              @relation("Bundle", fields: [bundledResourceUsageId], references: [id], onDelete: SetNull, onUpdate: Cascade)
-  baseType               String?
-  type                   String?
+  baseType               String?                     @map("@baseType")
+  type                   String?                     @map("@type")
   schemaLocation         String?
   createdAt              DateTime                    @default(now())
   updatedAt              DateTime                    @updatedAt
@@ -74,8 +75,8 @@ model UsageCharacteristic {
   name            String
   value           String
   valueType       String
-  type            String?
-  baseType        String?
+  type            String?       @map("@type")
+  baseType        String?       @map("@baseType")
   schemaLocation  String?
   resourceUsageId String
   resourceUsage   ResourceUsage @relation(fields: [resourceUsageId], references: [id], onDelete: Cascade, onUpdate: Cascade)
@@ -86,8 +87,8 @@ model RelatedParty {
   role            String
   partyId         String?
   partyName       String?
-  type            String?
-  baseType        String?
+  type            String?       @map("@type")
+  baseType        String?       @map("@baseType")
   schemaLocation  String?
   resourceUsageId String
   resourceUsage   ResourceUsage @relation(fields: [resourceUsageId], references: [id], onDelete: Cascade, onUpdate: Cascade)
@@ -97,8 +98,8 @@ model ExternalIdentifier {
   id                     String        @id @default(uuid())
   owner                  String
   externalIdentifierType String
-  type                   String?
-  baseType               String?
+  type                   String?       @map("@type")
+  baseType               String?       @map("@baseType")
   schemaLocation         String?
   resourceUsageId        String
   resourceUsage          ResourceUsage @relation(fields: [resourceUsageId], references: [id], onDelete: Cascade, onUpdate: Cascade)

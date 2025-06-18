@@ -20,7 +20,7 @@ export const notifyListeners = async (eventType: string, payload: any) => {
         try {
             await axios.post(url, eventBody);
         } catch (err) {
-            console.warn(`❌ Failed to notify listener ${url}`);
+            console.warn(`Failed to notify listener ${url}`);
         }
     }
 };

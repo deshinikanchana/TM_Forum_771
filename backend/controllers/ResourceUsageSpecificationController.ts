@@ -1,6 +1,7 @@
 import { Request, Response } from 'express';
 import * as service from '../services/ResourceUsageSpecificationService';
 import { notifyListeners } from '../webhooks/WebHookPublisher';
+import {normalizeSpecPayload} from '../Utils/normalize';
 
 export const list = async (req: Request, res: Response): Promise<void> => {
     try {
@@ -17,13 +18,13 @@ export const list = async (req: Request, res: Response): Promise<void> => {
 
 export const create = async (req: Request, res: Response): Promise<void> => {
     try {
-        const result = await service.createSpecification(req.body);
+        const payload = normalizeSpecPayload(req.body);
+        const result = await service.createSpecification(payload);
 
         if (!result?.id) {
             res.status(500).json({ error: 'Missing ID in response' });
             return;
         }
-
 
         await notifyListeners('ResourceUsageSpecificationCreateEvent', { specification: result });
         res.status(201).json({
@@ -53,10 +54,16 @@ export const get = async (req: Request, res: Response): Promise<void> => {
 };
 
 export const update = async (req: Request, res: Response): Promise<void> => {
+    const data = req.body;
     try {
-        const result = await service.updateSpecification(req.params.id, req.body);
+        if (data['@type']) {
+            data.type = data['@type'];
+            delete data['@type'];
+        }
+
+        const result = await service.updateSpecification(req.params.id, data);
         await notifyListeners('ResourceUsageSpecificationAttributeValueChangeEvent', { specification: result });
-        res.json(result);
+        res.status(200).json({result});
     } catch (error: any) {
         res.status(400).json({ error: 'Update failed' });
     }

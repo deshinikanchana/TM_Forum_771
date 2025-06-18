@@ -1,15 +1,19 @@
-import { prisma } from '../prisma/Client';
 import crypto from 'crypto';
 import {ResourceUsageSpecification} from "@prisma/client";
+import { PrismaClient } from '@prisma/client';
 
+const prisma = new PrismaClient();
 export const createSpecification = async (data: any) : Promise<ResourceUsageSpecification> => {
     const generatedId = data.id || crypto.randomUUID();
+    const generatedHref = data.href || `http://localhost:3000/tmf-api/resourceUsageManagement/v5/resourceUsageSpecification/${generatedId}`;
+
 
     return prisma.resourceUsageSpecification.upsert({
         where: { id: generatedId },
         update: {},
         create: {
             id: generatedId,
+            href:generatedHref,
             name: data.name || '',
             description: String(data.description ?? ''),
             version: data.version || '1.0',
@@ -58,7 +62,10 @@ export const getSpecificationById = async (id: string) => {
 export const updateSpecification = async (id: string, data: any) => {
     return prisma.resourceUsageSpecification.update({
         where: { id },
-        data,
+        data: {
+            type: data.type,
+            version: data.version
+        }
     });
 };
 

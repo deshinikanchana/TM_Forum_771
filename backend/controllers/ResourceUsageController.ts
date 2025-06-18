@@ -1,23 +1,30 @@
 import { Request, Response } from 'express';
 import * as service from '../services/ResourceUsageService';
 import { notifyListeners } from '../webhooks/WebHookPublisher';
+import { normalizeUsagePayload } from '../Utils/normalize';
 
 export const create = async (req: Request, res: Response) => {
-    const data = req.body;
     try {
-        const result = await service.createResourceUsage(data);
-        console.log("📦 Incoming CTK Payload:", JSON.stringify(req.body, null, 2));
-        await notifyListeners('ResourceUsageCreateEvent', { usage: result });
-        console.log("🚀 Final API response to CTK:", JSON.stringify(result, null, 2));
-        res.status(201).json(result);
-    } catch (e) {
-        res.status(400).json({ error: 'Create failed' });
+        const normalized = normalizeUsagePayload(req.body);
+        const result = await service.createResourceUsage(normalized);
+
+        res.status(201).json({
+            ...result,
+            href: `http://localhost:3000/tmf-api/resourceUsageManagement/v5/resourceUsage/${result.id}`
+        });
+    } catch (e:any) {
+        console.error("Controller error:", e.message, e.stack);
+        res.status(400).json({ error: e.message || 'Create failed' });
     }
 };
 
 export const list = async (_req: Request, res: Response) => {
-    const usages = await service.getAllResourceUsages();
-    res.json(usages);
+    try {
+        const usages = await service.getAllResourceUsages();
+        res.status(200).json(usages);
+    }catch(e){
+        res.status(500).json({ error: 'Failed to list resource usages' });
+    }
 };
 
 export const get = async (req: Request, res: Response) => {
@@ -26,8 +33,14 @@ export const get = async (req: Request, res: Response) => {
 };
 
 export const update = async (req: Request, res: Response) => {
+    const data = req.body;
     try {
-        const result = await service.updateResourceUsage(req.params.id, req.body);
+        if (data['@type']) {
+            data.type = data['@type'];
+            delete data['@type'];
+        }
+
+        const result = await service.updateResourceUsage(req.params.id,data);
         await notifyListeners('ResourceUsageAttributeValueChangeEvent', { usage: result });
         res.json(result);
     } catch {
