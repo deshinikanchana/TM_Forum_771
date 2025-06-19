@@ -42,12 +42,6 @@
                         }
                     ]
                 }
-            },
-            "DELETE": {
-                "request": {
-                    "method": "DELETE",
-                    "url": "http://localhost:3000/tmf-api/resourceUsageManagement/v5/resourceUsage/ru-001"
-                }
             }
         },
         "ResourceUsageSpecification": {

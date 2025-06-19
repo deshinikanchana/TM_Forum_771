@@ -8,9 +8,7 @@
         "ResourceUsage": {
             "POST": {
                 "payload": {
-                    "id": "ru-001",
-                    "href": "http://localhost:3000/tmf-api/resourceUsageManagement/v5/resourceUsage/ru-001",
-                    "usageDate": "2025-06-12T12:00:00Z",
+                   "usageDate": "2025-06-12T12:00:00Z",
                     "usageType": "VOICE",
                     "description": "Call from A to B",
                     "isBundle": false,
