@@ -5,9 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e7cabdb4-79c0-4aee-aea3-6786671391f7" name="Changes" comment="All test cases passed final">
-      <change beforePath="$PROJECT_DIR$/backend/TMF771/CHANGE_ME.json" beforeDir="false" afterPath="$PROJECT_DIR$/backend/TMF771/CHANGE_ME.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/TMF771/DO_NOT_CHANGE/cypress/fixtures/config.json" beforeDir="false" afterPath="$PROJECT_DIR$/backend/TMF771/DO_NOT_CHANGE/cypress/fixtures/config.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/TMF771/REPORT.HTML" beforeDir="false" afterPath="$PROJECT_DIR$/backend/TMF771/REPORT.HTML" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/backend/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/tsconfig.json" beforeDir="false" afterPath="$PROJECT_DIR$/backend/tsconfig.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -36,32 +36,62 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/home/kmgdk/SLT/Resource Usage Management&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.keymap&quot;,
-    &quot;ts.external.directory.path&quot;: &quot;/home/kmgdk/SLT/Resource Usage Management/backend/node_modules/typescript/lib&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "git-widget-placeholder": "master",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "/home/kmgdk/SLT/Resource Usage Management",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "npm.dev.executor": "Run",
+    "npm.start.executor": "Run",
+    "settings.editor.selected.configurable": "preferences.keymap",
+    "ts.external.directory.path": "/home/kmgdk/SLT/Resource Usage Management/backend/node_modules/typescript/lib",
+    "vue.rearranger.settings.migration": "true"
   },
-  &quot;keyToStringList&quot;: {
-    &quot;DatabaseDriversLRU&quot;: [
-      &quot;mysql&quot;
+  "keyToStringList": {
+    "DatabaseDriversLRU": [
+      "mysql"
     ]
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/backend" />
     </key>
+  </component>
+  <component name="RunManager" selected="npm.start">
+    <configuration name="dev" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
+      <package-json value="$PROJECT_DIR$/backend/package.json" />
+      <command value="run" />
+      <scripts>
+        <script value="dev" />
+      </scripts>
+      <node-interpreter value="project" />
+      <envs />
+      <method v="2" />
+    </configuration>
+    <configuration name="start" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
+      <package-json value="$PROJECT_DIR$/backend/package.json" />
+      <command value="run" />
+      <scripts>
+        <script value="start" />
+      </scripts>
+      <node-interpreter value="project" />
+      <envs />
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="npm.start" />
+        <item itemvalue="npm.dev" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SharedIndexes">
     <attachedChunks>
@@ -82,7 +112,8 @@
       <workItem from="1749882095459" duration="151000" />
       <workItem from="1750228679163" duration="5308000" />
       <workItem from="1750304096061" duration="318000" />
-      <workItem from="1750307347478" duration="653000" />
+      <workItem from="1750307347478" duration="2771000" />
+      <workItem from="1750521954217" duration="3506000" />
     </task>
     <task id="LOCAL-00001" summary="Initial commit with backend">
       <option name="closed" value="true" />
@@ -148,11 +179,36 @@
       <option name="project" value="LOCAL" />
       <updated>1750230708405</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="All test cases passed final">
+      <option name="closed" value="true" />
+      <created>1750311709476</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1750311709476</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+    <option name="exactExcludedFiles">
+      <list>
+        <option value="$PROJECT_DIR$/backend/server.js" />
+        <option value="$PROJECT_DIR$/backend/Utils/normalize.js" />
+        <option value="$PROJECT_DIR$/backend/types/ResourceUsageTracker.js" />
+        <option value="$PROJECT_DIR$/backend/services/ResourceUsageSpecificationService.js" />
+        <option value="$PROJECT_DIR$/backend/services/ResourceUsageService.js" />
+        <option value="$PROJECT_DIR$/backend/routes/WebHookRoutes.js" />
+        <option value="$PROJECT_DIR$/backend/routes/ResourceUsageSpecificationRoutes.js" />
+        <option value="$PROJECT_DIR$/backend/routes/ResourceUsageRoutes.js" />
+        <option value="$PROJECT_DIR$/backend/webhooks/WebHookRegistry.js" />
+        <option value="$PROJECT_DIR$/backend/webhooks/WebHookPublisher.js" />
+        <option value="$PROJECT_DIR$/backend/controllers/WebHookController.js" />
+        <option value="$PROJECT_DIR$/backend/controllers/ResourceUsageController.js" />
+        <option value="$PROJECT_DIR$/backend/controllers/ResourceUsageSpecificationController.js" />
+      </list>
+    </option>
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Initial commit with backend" />
