@@ -1131,7 +1131,7 @@ sys|schema||mysql.sys|localhost|TRIGGER|G</Grants>
     </schema>
     <schema id="311" parent="1" name="resource_usage_track">
       <Current>1</Current>
-      <LastIntrospectionLocalTimestamp>2025-06-18.06:39:39</LastIntrospectionLocalTimestamp>
+      <LastIntrospectionLocalTimestamp>2025-06-23.06:04:01</LastIntrospectionLocalTimestamp>
       <CollationName>utf8mb4_0900_ai_ci</CollationName>
     </schema>
     <user id="312" parent="1" name="debian-sys-maint">
@@ -1180,410 +1180,463 @@ sys|schema||mysql.sys|localhost|TRIGGER|G</Grants>
       <Engine>InnoDB</Engine>
       <CollationName>utf8mb4_unicode_ci</CollationName>
     </table>
-    <column id="323" parent="317" name="id">
+    <table id="323" parent="311" name="_prisma_migrations">
+      <Engine>InnoDB</Engine>
+      <CollationName>utf8mb4_unicode_ci</CollationName>
+    </table>
+    <column id="324" parent="317" name="id">
       <DasType>varchar(191)|0s</DasType>
       <NotNull>1</NotNull>
       <Position>1</Position>
     </column>
-    <column id="324" parent="317" name="name">
+    <column id="325" parent="317" name="name">
       <DasType>varchar(191)|0s</DasType>
       <NotNull>1</NotNull>
       <Position>2</Position>
     </column>
-    <column id="325" parent="317" name="valueType">
+    <column id="326" parent="317" name="valueType">
       <DasType>varchar(191)|0s</DasType>
       <NotNull>1</NotNull>
       <Position>3</Position>
     </column>
-    <column id="326" parent="317" name="description">
+    <column id="327" parent="317" name="description">
       <DasType>varchar(191)|0s</DasType>
       <NotNull>1</NotNull>
       <Position>4</Position>
     </column>
-    <column id="327" parent="317" name="configurable">
+    <column id="328" parent="317" name="configurable">
       <DasType>tinyint(1)|0s</DasType>
       <NotNull>1</NotNull>
       <Position>5</Position>
     </column>
-    <column id="328" parent="317" name="extensible">
+    <column id="329" parent="317" name="extensible">
       <DasType>tinyint(1)|0s</DasType>
       <Position>6</Position>
     </column>
-    <column id="329" parent="317" name="isUnique">
+    <column id="330" parent="317" name="isUnique">
       <DasType>tinyint(1)|0s</DasType>
       <Position>7</Position>
     </column>
-    <column id="330" parent="317" name="minCardinality">
+    <column id="331" parent="317" name="minCardinality">
       <DasType>int|0s</DasType>
       <NotNull>1</NotNull>
       <Position>8</Position>
     </column>
-    <column id="331" parent="317" name="maxCardinality">
+    <column id="332" parent="317" name="maxCardinality">
       <DasType>int|0s</DasType>
       <NotNull>1</NotNull>
       <Position>9</Position>
     </column>
-    <column id="332" parent="317" name="resourceUsageSpecId">
+    <column id="333" parent="317" name="resourceUsageSpecId">
       <DasType>varchar(191)|0s</DasType>
       <NotNull>1</NotNull>
       <Position>10</Position>
     </column>
-    <foreign-key id="333" parent="317" name="CharacteristicSpecification_resourceUsageSpecId_fkey">
+    <foreign-key id="334" parent="317" name="CharacteristicSpecification_resourceUsageSpecId_fkey">
       <ColNames>resourceUsageSpecId</ColNames>
       <OnDelete>cascade</OnDelete>
       <OnUpdate>cascade</OnUpdate>
       <RefColNames>id</RefColNames>
       <RefTableName>ResourceUsageSpecification</RefTableName>
     </foreign-key>
-    <index id="334" parent="317" name="PRIMARY">
+    <index id="335" parent="317" name="PRIMARY">
       <ColNames>id</ColNames>
       <Type>btree</Type>
       <Unique>1</Unique>
     </index>
-    <index id="335" parent="317" name="CharacteristicSpecification_resourceUsageSpecId_fkey">
+    <index id="336" parent="317" name="CharacteristicSpecification_resourceUsageSpecId_fkey">
       <ColNames>resourceUsageSpecId</ColNames>
       <Type>btree</Type>
     </index>
-    <key id="336" parent="317" name="PRIMARY">
+    <key id="337" parent="317" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <Primary>1</Primary>
       <UnderlyingIndexName>PRIMARY</UnderlyingIndexName>
     </key>
-    <column id="337" parent="318" name="id">
+    <column id="338" parent="318" name="id">
       <DasType>varchar(191)|0s</DasType>
       <NotNull>1</NotNull>
       <Position>1</Position>
     </column>
-    <column id="338" parent="318" name="owner">
+    <column id="339" parent="318" name="owner">
       <DasType>varchar(191)|0s</DasType>
       <NotNull>1</NotNull>
       <Position>2</Position>
     </column>
-    <column id="339" parent="318" name="externalIdentifierType">
+    <column id="340" parent="318" name="externalIdentifierType">
       <DasType>varchar(191)|0s</DasType>
       <NotNull>1</NotNull>
       <Position>3</Position>
     </column>
-    <column id="340" parent="318" name="schemaLocation">
+    <column id="341" parent="318" name="@type">
       <DasType>varchar(191)|0s</DasType>
       <Position>4</Position>
-    </column>
-    <column id="341" parent="318" name="resourceUsageId">
-      <DasType>varchar(191)|0s</DasType>
-      <NotNull>1</NotNull>
-      <Position>5</Position>
     </column>
     <column id="342" parent="318" name="@baseType">
       <DasType>varchar(191)|0s</DasType>
+      <Position>5</Position>
+    </column>
+    <column id="343" parent="318" name="schemaLocation">
+      <DasType>varchar(191)|0s</DasType>
       <Position>6</Position>
     </column>
-    <column id="343" parent="318" name="@type">
+    <column id="344" parent="318" name="resourceUsageId">
       <DasType>varchar(191)|0s</DasType>
+      <NotNull>1</NotNull>
       <Position>7</Position>
     </column>
-    <foreign-key id="344" parent="318" name="ExternalIdentifier_resourceUsageId_fkey">
+    <foreign-key id="345" parent="318" name="ExternalIdentifier_resourceUsageId_fkey">
       <ColNames>resourceUsageId</ColNames>
       <OnDelete>cascade</OnDelete>
       <OnUpdate>cascade</OnUpdate>
       <RefColNames>id</RefColNames>
       <RefTableName>ResourceUsage</RefTableName>
     </foreign-key>
-    <index id="345" parent="318" name="PRIMARY">
+    <index id="346" parent="318" name="PRIMARY">
       <ColNames>id</ColNames>
       <Type>btree</Type>
       <Unique>1</Unique>
     </index>
-    <index id="346" parent="318" name="ExternalIdentifier_resourceUsageId_fkey">
+    <index id="347" parent="318" name="ExternalIdentifier_resourceUsageId_fkey">
       <ColNames>resourceUsageId</ColNames>
       <Type>btree</Type>
     </index>
-    <key id="347" parent="318" name="PRIMARY">
+    <key id="348" parent="318" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <Primary>1</Primary>
       <UnderlyingIndexName>PRIMARY</UnderlyingIndexName>
     </key>
-    <column id="348" parent="319" name="id">
+    <column id="349" parent="319" name="id">
       <DasType>varchar(191)|0s</DasType>
       <NotNull>1</NotNull>
       <Position>1</Position>
     </column>
-    <column id="349" parent="319" name="role">
+    <column id="350" parent="319" name="role">
       <DasType>varchar(191)|0s</DasType>
       <NotNull>1</NotNull>
       <Position>2</Position>
     </column>
-    <column id="350" parent="319" name="partyId">
+    <column id="351" parent="319" name="partyId">
       <DasType>varchar(191)|0s</DasType>
       <Position>3</Position>
     </column>
-    <column id="351" parent="319" name="partyName">
+    <column id="352" parent="319" name="partyName">
       <DasType>varchar(191)|0s</DasType>
       <Position>4</Position>
     </column>
-    <column id="352" parent="319" name="schemaLocation">
+    <column id="353" parent="319" name="@type">
       <DasType>varchar(191)|0s</DasType>
       <Position>5</Position>
     </column>
-    <column id="353" parent="319" name="resourceUsageId">
+    <column id="354" parent="319" name="@baseType">
       <DasType>varchar(191)|0s</DasType>
-      <NotNull>1</NotNull>
       <Position>6</Position>
     </column>
-    <column id="354" parent="319" name="@baseType">
+    <column id="355" parent="319" name="schemaLocation">
       <DasType>varchar(191)|0s</DasType>
       <Position>7</Position>
     </column>
-    <column id="355" parent="319" name="@type">
+    <column id="356" parent="319" name="resourceUsageId">
       <DasType>varchar(191)|0s</DasType>
+      <NotNull>1</NotNull>
       <Position>8</Position>
     </column>
-    <foreign-key id="356" parent="319" name="RelatedParty_resourceUsageId_fkey">
+    <foreign-key id="357" parent="319" name="RelatedParty_resourceUsageId_fkey">
       <ColNames>resourceUsageId</ColNames>
       <OnDelete>cascade</OnDelete>
       <OnUpdate>cascade</OnUpdate>
       <RefColNames>id</RefColNames>
       <RefTableName>ResourceUsage</RefTableName>
     </foreign-key>
-    <index id="357" parent="319" name="PRIMARY">
+    <index id="358" parent="319" name="PRIMARY">
       <ColNames>id</ColNames>
       <Type>btree</Type>
       <Unique>1</Unique>
     </index>
-    <index id="358" parent="319" name="RelatedParty_resourceUsageId_fkey">
+    <index id="359" parent="319" name="RelatedParty_resourceUsageId_fkey">
       <ColNames>resourceUsageId</ColNames>
       <Type>btree</Type>
     </index>
-    <key id="359" parent="319" name="PRIMARY">
+    <key id="360" parent="319" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <Primary>1</Primary>
       <UnderlyingIndexName>PRIMARY</UnderlyingIndexName>
     </key>
-    <column id="360" parent="320" name="id">
+    <column id="361" parent="320" name="id">
       <DasType>varchar(191)|0s</DasType>
       <NotNull>1</NotNull>
       <Position>1</Position>
     </column>
-    <column id="361" parent="320" name="href">
+    <column id="362" parent="320" name="href">
       <DasType>varchar(191)|0s</DasType>
       <Position>2</Position>
     </column>
-    <column id="362" parent="320" name="usageDate">
+    <column id="363" parent="320" name="usageDate">
       <DasType>datetime(3)|0s</DasType>
       <NotNull>1</NotNull>
       <Position>3</Position>
     </column>
-    <column id="363" parent="320" name="usageType">
+    <column id="364" parent="320" name="usageType">
       <DasType>varchar(191)|0s</DasType>
       <NotNull>1</NotNull>
       <Position>4</Position>
     </column>
-    <column id="364" parent="320" name="description">
+    <column id="365" parent="320" name="description">
       <DasType>varchar(191)|0s</DasType>
       <NotNull>1</NotNull>
       <Position>5</Position>
     </column>
-    <column id="365" parent="320" name="isBundle">
+    <column id="366" parent="320" name="isBundle">
       <DasType>tinyint(1)|0s</DasType>
       <DefaultExpression>0</DefaultExpression>
       <NotNull>1</NotNull>
       <Position>6</Position>
     </column>
-    <column id="366" parent="320" name="usageSpecificationId">
+    <column id="367" parent="320" name="usageSpecificationId">
       <DasType>varchar(191)|0s</DasType>
       <Position>7</Position>
     </column>
-    <column id="367" parent="320" name="resourceId">
+    <column id="368" parent="320" name="resourceId">
       <DasType>varchar(191)|0s</DasType>
       <NotNull>1</NotNull>
       <Position>8</Position>
     </column>
-    <column id="368" parent="320" name="resourceName">
+    <column id="369" parent="320" name="resourceName">
       <DasType>varchar(191)|0s</DasType>
       <NotNull>1</NotNull>
       <Position>9</Position>
     </column>
-    <column id="369" parent="320" name="bundledResourceUsageId">
+    <column id="370" parent="320" name="bundledResourceUsageId">
       <DasType>varchar(191)|0s</DasType>
       <Position>10</Position>
     </column>
-    <column id="370" parent="320" name="schemaLocation">
+    <column id="371" parent="320" name="@baseType">
       <DasType>varchar(191)|0s</DasType>
       <Position>11</Position>
     </column>
-    <column id="371" parent="320" name="createdAt">
+    <column id="372" parent="320" name="@type">
+      <DasType>varchar(191)|0s</DasType>
+      <Position>12</Position>
+    </column>
+    <column id="373" parent="320" name="schemaLocation">
+      <DasType>varchar(191)|0s</DasType>
+      <Position>13</Position>
+    </column>
+    <column id="374" parent="320" name="createdAt">
       <DasType>datetime(3)|0s</DasType>
       <DefaultExpression>CURRENT_TIMESTAMP(3)</DefaultExpression>
       <NotNull>1</NotNull>
-      <Position>12</Position>
-    </column>
-    <column id="372" parent="320" name="updatedAt">
-      <DasType>datetime(3)|0s</DasType>
-      <NotNull>1</NotNull>
-      <Position>13</Position>
-    </column>
-    <column id="373" parent="320" name="@baseType">
-      <DasType>varchar(191)|0s</DasType>
       <Position>14</Position>
     </column>
-    <column id="374" parent="320" name="@type">
-      <DasType>varchar(191)|0s</DasType>
+    <column id="375" parent="320" name="updatedAt">
+      <DasType>datetime(3)|0s</DasType>
+      <NotNull>1</NotNull>
       <Position>15</Position>
     </column>
-    <foreign-key id="375" parent="320" name="ResourceUsage_usageSpecificationId_fkey">
+    <foreign-key id="376" parent="320" name="ResourceUsage_usageSpecificationId_fkey">
       <ColNames>usageSpecificationId</ColNames>
       <OnDelete>set-null</OnDelete>
       <OnUpdate>cascade</OnUpdate>
       <RefColNames>id</RefColNames>
       <RefTableName>ResourceUsageSpecification</RefTableName>
     </foreign-key>
-    <foreign-key id="376" parent="320" name="ResourceUsage_bundledResourceUsageId_fkey">
+    <foreign-key id="377" parent="320" name="ResourceUsage_bundledResourceUsageId_fkey">
       <ColNames>bundledResourceUsageId</ColNames>
       <OnDelete>set-null</OnDelete>
       <OnUpdate>cascade</OnUpdate>
       <RefColNames>id</RefColNames>
       <RefTableName>ResourceUsage</RefTableName>
     </foreign-key>
-    <index id="377" parent="320" name="PRIMARY">
+    <index id="378" parent="320" name="PRIMARY">
       <ColNames>id</ColNames>
       <Type>btree</Type>
       <Unique>1</Unique>
     </index>
-    <index id="378" parent="320" name="ResourceUsage_usageSpecificationId_fkey">
+    <index id="379" parent="320" name="ResourceUsage_usageSpecificationId_fkey">
       <ColNames>usageSpecificationId</ColNames>
       <Type>btree</Type>
     </index>
-    <index id="379" parent="320" name="ResourceUsage_bundledResourceUsageId_fkey">
+    <index id="380" parent="320" name="ResourceUsage_bundledResourceUsageId_fkey">
       <ColNames>bundledResourceUsageId</ColNames>
       <Type>btree</Type>
     </index>
-    <key id="380" parent="320" name="PRIMARY">
+    <key id="381" parent="320" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <Primary>1</Primary>
       <UnderlyingIndexName>PRIMARY</UnderlyingIndexName>
     </key>
-    <column id="381" parent="321" name="id">
+    <column id="382" parent="321" name="id">
       <DasType>varchar(191)|0s</DasType>
       <NotNull>1</NotNull>
       <Position>1</Position>
     </column>
-    <column id="382" parent="321" name="name">
+    <column id="383" parent="321" name="href">
       <DasType>varchar(191)|0s</DasType>
-      <NotNull>1</NotNull>
       <Position>2</Position>
     </column>
-    <column id="383" parent="321" name="description">
+    <column id="384" parent="321" name="name">
       <DasType>varchar(191)|0s</DasType>
       <NotNull>1</NotNull>
       <Position>3</Position>
     </column>
-    <column id="384" parent="321" name="version">
+    <column id="385" parent="321" name="description">
       <DasType>varchar(191)|0s</DasType>
       <NotNull>1</NotNull>
       <Position>4</Position>
     </column>
-    <column id="385" parent="321" name="isBundle">
-      <DasType>tinyint(1)|0s</DasType>
-      <DefaultExpression>0</DefaultExpression>
+    <column id="386" parent="321" name="version">
+      <DasType>varchar(191)|0s</DasType>
       <NotNull>1</NotNull>
       <Position>5</Position>
     </column>
-    <column id="386" parent="321" name="lifecycleStatus">
-      <DasType>varchar(191)|0s</DasType>
+    <column id="387" parent="321" name="isBundle">
+      <DasType>tinyint(1)|0s</DasType>
+      <DefaultExpression>0</DefaultExpression>
       <NotNull>1</NotNull>
       <Position>6</Position>
     </column>
-    <column id="387" parent="321" name="lastUpdate">
-      <DasType>datetime(3)|0s</DasType>
+    <column id="388" parent="321" name="lifecycleStatus">
+      <DasType>varchar(191)|0s</DasType>
+      <NotNull>1</NotNull>
       <Position>7</Position>
     </column>
-    <column id="388" parent="321" name="validForStart">
+    <column id="389" parent="321" name="lastUpdate">
       <DasType>datetime(3)|0s</DasType>
       <Position>8</Position>
     </column>
-    <column id="389" parent="321" name="validForEnd">
+    <column id="390" parent="321" name="validForStart">
       <DasType>datetime(3)|0s</DasType>
       <Position>9</Position>
     </column>
-    <column id="390" parent="321" name="schemaLocation">
-      <DasType>varchar(191)|0s</DasType>
+    <column id="391" parent="321" name="validForEnd">
+      <DasType>datetime(3)|0s</DasType>
       <Position>10</Position>
     </column>
-    <column id="391" parent="321" name="@baseType">
+    <column id="392" parent="321" name="@baseType">
       <DasType>varchar(191)|0s</DasType>
       <Position>11</Position>
     </column>
-    <column id="392" parent="321" name="@type">
+    <column id="393" parent="321" name="@type">
       <DasType>varchar(191)|0s</DasType>
       <Position>12</Position>
     </column>
-    <column id="393" parent="321" name="href">
+    <column id="394" parent="321" name="schemaLocation">
       <DasType>varchar(191)|0s</DasType>
       <Position>13</Position>
     </column>
-    <index id="394" parent="321" name="PRIMARY">
+    <index id="395" parent="321" name="PRIMARY">
       <ColNames>id</ColNames>
       <Type>btree</Type>
       <Unique>1</Unique>
     </index>
-    <key id="395" parent="321" name="PRIMARY">
+    <key id="396" parent="321" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <Primary>1</Primary>
       <UnderlyingIndexName>PRIMARY</UnderlyingIndexName>
     </key>
-    <column id="396" parent="322" name="id">
+    <column id="397" parent="322" name="id">
       <DasType>varchar(191)|0s</DasType>
       <NotNull>1</NotNull>
       <Position>1</Position>
     </column>
-    <column id="397" parent="322" name="name">
+    <column id="398" parent="322" name="name">
       <DasType>varchar(191)|0s</DasType>
       <NotNull>1</NotNull>
       <Position>2</Position>
     </column>
-    <column id="398" parent="322" name="value">
+    <column id="399" parent="322" name="value">
       <DasType>varchar(191)|0s</DasType>
       <NotNull>1</NotNull>
       <Position>3</Position>
     </column>
-    <column id="399" parent="322" name="valueType">
+    <column id="400" parent="322" name="valueType">
       <DasType>varchar(191)|0s</DasType>
       <NotNull>1</NotNull>
       <Position>4</Position>
     </column>
-    <column id="400" parent="322" name="schemaLocation">
+    <column id="401" parent="322" name="@type">
       <DasType>varchar(191)|0s</DasType>
       <Position>5</Position>
     </column>
-    <column id="401" parent="322" name="resourceUsageId">
+    <column id="402" parent="322" name="@baseType">
       <DasType>varchar(191)|0s</DasType>
-      <NotNull>1</NotNull>
       <Position>6</Position>
     </column>
-    <column id="402" parent="322" name="@baseType">
+    <column id="403" parent="322" name="schemaLocation">
       <DasType>varchar(191)|0s</DasType>
       <Position>7</Position>
     </column>
-    <column id="403" parent="322" name="@type">
+    <column id="404" parent="322" name="resourceUsageId">
       <DasType>varchar(191)|0s</DasType>
+      <NotNull>1</NotNull>
       <Position>8</Position>
     </column>
-    <foreign-key id="404" parent="322" name="UsageCharacteristic_resourceUsageId_fkey">
+    <foreign-key id="405" parent="322" name="UsageCharacteristic_resourceUsageId_fkey">
       <ColNames>resourceUsageId</ColNames>
       <OnDelete>cascade</OnDelete>
       <OnUpdate>cascade</OnUpdate>
       <RefColNames>id</RefColNames>
       <RefTableName>ResourceUsage</RefTableName>
     </foreign-key>
-    <index id="405" parent="322" name="PRIMARY">
+    <index id="406" parent="322" name="PRIMARY">
       <ColNames>id</ColNames>
       <Type>btree</Type>
       <Unique>1</Unique>
     </index>
-    <index id="406" parent="322" name="UsageCharacteristic_resourceUsageId_fkey">
+    <index id="407" parent="322" name="UsageCharacteristic_resourceUsageId_fkey">
       <ColNames>resourceUsageId</ColNames>
       <Type>btree</Type>
     </index>
-    <key id="407" parent="322" name="PRIMARY">
+    <key id="408" parent="322" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <Primary>1</Primary>
+      <UnderlyingIndexName>PRIMARY</UnderlyingIndexName>
+    </key>
+    <column id="409" parent="323" name="id">
+      <DasType>varchar(36)|0s</DasType>
+      <NotNull>1</NotNull>
+      <Position>1</Position>
+    </column>
+    <column id="410" parent="323" name="checksum">
+      <DasType>varchar(64)|0s</DasType>
+      <NotNull>1</NotNull>
+      <Position>2</Position>
+    </column>
+    <column id="411" parent="323" name="finished_at">
+      <DasType>datetime(3)|0s</DasType>
+      <Position>3</Position>
+    </column>
+    <column id="412" parent="323" name="migration_name">
+      <DasType>varchar(255)|0s</DasType>
+      <NotNull>1</NotNull>
+      <Position>4</Position>
+    </column>
+    <column id="413" parent="323" name="logs">
+      <DasType>text|0s</DasType>
+      <Position>5</Position>
+    </column>
+    <column id="414" parent="323" name="rolled_back_at">
+      <DasType>datetime(3)|0s</DasType>
+      <Position>6</Position>
+    </column>
+    <column id="415" parent="323" name="started_at">
+      <DasType>datetime(3)|0s</DasType>
+      <DefaultExpression>CURRENT_TIMESTAMP(3)</DefaultExpression>
+      <NotNull>1</NotNull>
+      <Position>7</Position>
+    </column>
+    <column id="416" parent="323" name="applied_steps_count">
+      <DasType>int unsigned|0s</DasType>
+      <DefaultExpression>&apos;0&apos;</DefaultExpression>
+      <NotNull>1</NotNull>
+      <Position>8</Position>
+    </column>
+    <index id="417" parent="323" name="PRIMARY">
+      <ColNames>id</ColNames>
+      <Type>btree</Type>
+      <Unique>1</Unique>
+    </index>
+    <key id="418" parent="323" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <Primary>1</Primary>
       <UnderlyingIndexName>PRIMARY</UnderlyingIndexName>
