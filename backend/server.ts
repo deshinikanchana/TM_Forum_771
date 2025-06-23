@@ -28,7 +28,7 @@ app.post('/notifications', (req, res) => {
 
 // Health check
 app.get('/', (_req, res) => {
-    res.send('✅ Resource Usage Management API is running\nGET Resource Usage : `https://tmforum771-production.up.railway.app/tmf-api/resourceUsageManagement/v5/resourceUsage` \n GET Resource Usage Specification : `https://tmforum771-production.up.railway.app/tmf-api/resourceUsageManagement/v5/resourceUsageSpecification` ');
+    res.send('✅ Resource Usage Management API is running');
 });
 
 // Error handler
