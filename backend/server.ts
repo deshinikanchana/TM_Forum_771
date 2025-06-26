@@ -28,8 +28,44 @@ app.post('/notifications', (req, res) => {
 
 // Health check
 app.get('/', (_req, res) => {
-    res.send('✅ Resource Usage Management API is running');
+    res.send(`
+    <html>
+      <head>
+        <title>Resource Usage Management API</title>
+        <style>
+          body {
+            font-family: Arial, sans-serif;
+            background-color: #f9f9f9;
+            padding: 40px;
+            color: #333;
+          }
+          h1 {
+            color: #005a9c;
+          }
+          a {
+            display: block;
+            margin: 10px 0;
+            color: #007bff;
+            text-decoration: none;
+          }
+          a:hover {
+            text-decoration: underline;
+          }
+        </style>
+      </head>
+      <body>
+        <h1>Resource Usage Management API is running</h1>
+        <a href="https://tmforum771-production.up.railway.app/tmf-api/resourceUsageManagement/v5/resourceUsage" target="_blank">
+          View Resource Usage
+        </a>
+        <a href="https://tmforum771-production.up.railway.app/tmf-api/resourceUsageManagement/v5/resourceUsageSpecification" target="_blank">
+          View Resource Usage Specification
+        </a>
+      </body>
+    </html>
+  `);
 });
+
 
 // Error handler
 app.use((err: any, _req: express.Request, res: express.Response, _next: express.NextFunction) => {
